@@ -136,8 +136,8 @@ body {
 }
 
 .success {
-    color: green;
-    border-color: green;
+    color: rgb(11, 97, 11);
+    border-color: rgb(11, 97, 11);
     display: block;
     margin-bottom: .5rem;
 }
