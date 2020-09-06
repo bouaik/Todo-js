@@ -7,8 +7,8 @@ const displayItemsAction = document.querySelector('.displayItems-action')
 const clear = document.querySelector('.displayItems-clear')
 
 submit.addEventListener('click', addItem)
-
 document.addEventListener('DOMContentLoaded', displaystorage)
+clear.addEventListener('click', removeItems)
 
 
 function addItem(e) {
@@ -87,5 +87,19 @@ function displaystorage () {
         storageItems.forEach( function (element) {
             createItem(element)
         })
+    }
+}
+
+function removeItems () {
+    localStorage.removeItem('groceryList')
+    let items = document.querySelectorAll('.grocery-item')
+    
+    if(items.length > 0) {
+        showAction(displayItemsAction, 'All items deleted', false)
+        items.forEach( (element) => {
+            list.removeChild(element)
+        })
+    } else {
+        showAction(displayItemsAction, 'no more items to delete', true)
     }
 }
