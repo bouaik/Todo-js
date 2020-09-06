@@ -8,6 +8,9 @@ const clear = document.querySelector('.displayItems-clear')
 
 submit.addEventListener('click', addItem)
 
+document.addEventListener('DOMContentLoaded', displaystorage)
+
+
 function addItem(e) {
     e.preventDefault()
     let value =  input.value
@@ -73,3 +76,16 @@ function updateStorage(value) {
 }
 
 // localStorage.clear()
+
+
+function displaystorage () {
+    let exists = localStorage.getItem('groceryList')
+
+    if(exists) {
+        let storageItems = JSON.parse(localStorage.getItem('groceryList'))
+
+        storageItems.forEach( function (element) {
+            createItem(element)
+        })
+    }
+}
