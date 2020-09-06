@@ -9,6 +9,7 @@ const clear = document.querySelector('.displayItems-clear')
 submit.addEventListener('click', addItem)
 document.addEventListener('DOMContentLoaded', displaystorage)
 clear.addEventListener('click', removeItems)
+list.addEventListener('click', removeSingleItem)
 
 
 function addItem(e) {
@@ -101,5 +102,17 @@ function removeItems () {
         })
     } else {
         showAction(displayItemsAction, 'no more items to delete', true)
+    }
+}
+
+function removeSingleItem (e) {
+    e.preventDefault()
+    let link = e.target.parentElement
+    if(link.classList.contains('grocery-item__link')) {
+        let text = link.previousElementSibling.innerHTML;
+        let groceryItem = link.parentElement
+        list.removeChild(groceryItem)
+        showAction(displayItemsAction, `${text} removed from the list`, true)
+
     }
 }
