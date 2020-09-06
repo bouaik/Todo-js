@@ -113,6 +113,18 @@ function removeSingleItem (e) {
         let groceryItem = link.parentElement
         list.removeChild(groceryItem)
         showAction(displayItemsAction, `${text} removed from the list`, true)
-
+        editstorage(text)
     }
+}
+
+function editstorage(item) {
+    let groceryItems = JSON.parse(localStorage.getItem('groceryList'))
+
+    let index = groceryItems.indexOf(item)
+
+    groceryItems.splice(index, 1)
+    localStorage.removeItem('groceryList')
+    localStorage.setItem('groceryList', JSON.stringify(groceryItems))
+
+
 }
