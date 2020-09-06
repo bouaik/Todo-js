@@ -128,3 +128,22 @@ body {
     color: #272932;
 }
 
+.alert {
+    color: #821313;
+    border-color: #821313;
+    display: block;
+    margin-bottom: .5rem;
+}
+
+.success {
+    color: green;
+    border-color: green;
+    display: block;
+    margin-bottom: .5rem;
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        grid-template-columns: 50%;
+    }
+}
