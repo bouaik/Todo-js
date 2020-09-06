@@ -16,6 +16,7 @@ function addItem(e) {
     } else {
         showAction(addItemsAction, `${value} add to the list`, true)
         createItem(value)
+        updateStorage(value)
     }
 }
 
@@ -52,3 +53,23 @@ function createItem(value) {
 
     list.appendChild(parent)
 }
+
+
+function updateStorage(value) {
+    let groceryList
+
+    // let exists = localStorage.getItem('groceryList')
+    // if (exists) {
+    //     groceryList = JSON.parse(localStorage.getItem('groceryList'))
+    // } else {
+    //     groceryList = []
+    // }
+
+    groceryList = localStorage.getItem('groceryList') ? JSON.parse(localStorage.getItem('groceryList')) : []
+
+    groceryList.push(value)
+
+    localStorage.setItem('groceryList', JSON.stringify(groceryList))
+}
+
+// localStorage.clear()
